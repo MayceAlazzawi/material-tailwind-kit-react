@@ -64,11 +64,15 @@ export function Navbar({ brandName, routes, action }) {
   return (
     <MTNavbar color="transparent" className="p-3">
       <div className="container mx-auto flex items-center justify-between text-white">
+      <div className="flex flex-row items-center">
         <Link to="/" onClick={closeNav}>
-          <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold">
-            {brandName}
-          </Typography>
-        </Link>
+            <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold text-3xl">
+              CM 
+            </Typography>
+          </Link>
+          <span className="mr-4 cursor-pointer py-1.5 font-bold text-gray-300 text-lg">| Creativity Makers</span>
+
+      </div>
         <div className="hidden lg:block">{navList}</div>
         <div className="hidden gap-2 lg:flex">
           {action}

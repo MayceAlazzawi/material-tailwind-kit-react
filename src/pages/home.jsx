@@ -23,10 +23,10 @@ export function Home() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    console.log("k")
     emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
+      .sendForm('service_2quhu2n', 'template_91pbhth', form.current, {
+        publicKey: '8Yj4TQORNo50jHriN',
       })
       .then(
         () => {
@@ -52,7 +52,7 @@ export function Home() {
                 color="white"
                 className="mb-6 font-black"
               >
-                Creative Makers Bringing Ideas to Life.
+                Creativity Makers Bringing Ideas to Life.
               </Typography>
               <Typography variant="lead" color="white" className="opacity-80">
                 We're here to empower innovators to turn their visions into reality. 
@@ -129,17 +129,16 @@ export function Home() {
           </PageTitle>
           <form className="mx-auto w-full mt-12 lg:w-5/12" ref={form} onSubmit={sendEmail}>
             <div className="mb-8 flex gap-8">
-              <Input variant="outlined" size="lg" label="Full Name" name="user_name"/>
-              <Input variant="outlined" size="lg" label="Email Address" name="user_email" />
+              <Input variant="outlined" size="lg" label="Full Name" name="from_name"/>
+              <Input variant="outlined" size="lg" label="Email Address" name="from_email" />
             </div>
             <Textarea variant="outlined" size="lg" label="Message" rows={8} name="message" />
-            <Button variant="gradient" size="lg" className="mt-8" fullWidth value="Send" >
+            <Button variant="gradient" size="lg" className="mt-8" fullWidth onClick={sendEmail} >
               Send Message
             </Button>
             {MsgSent && MsgSent}
           </form>
           </div>
-         
         </div>
       </section>
       <div className="bg-white">
