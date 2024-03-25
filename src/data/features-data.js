@@ -5,24 +5,24 @@ import {
 export const featuresData = [
   {
     color: "gray",
-    title: "Awarded Agency",
+    title: "Innovative Solutions",
     icon: ChatBubbleBottomCenterTextIcon,
     description:
-      "Divide details about your product or agency work into parts. A paragraph describing a feature will be enough.",
+      "Experience award-winning strategies tailored to your needs, ensuring your project's success.",
   },
   {
     color: "gray",
-    title: "Free Revisions",
+    title: "Flexible Revisions",
     icon: ChatBubbleBottomCenterTextIcon,
     description:
-      "Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious.",
+      "We value your input. Enjoy the flexibility of revisions to perfect your project.",
   },
   {
     color: "gray",
-    title: "Verified Company",
+    title: "Trusted Partner",
     icon: ChatBubbleBottomCenterTextIcon,
     description:
-      "Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!",
+      "Partner with a verified company committed to delivering exceptional results.",
   },
 ];
 

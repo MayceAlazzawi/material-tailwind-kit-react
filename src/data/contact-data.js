@@ -6,22 +6,22 @@ import {
 
 export const contactData = [
   {
-    title: "Excelent Services",
+    title: "Excellent Services",
     icon: BriefcaseIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Experience top-notch services tailored to your needs and designed to exceed your expectations.",
   },
   {
-    title: "Grow Your Market",
+    title: "Expand Your Market",
     icon: ChartBarIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Grow your market and reach new heights with our innovative solutions and strategies.",
   },
   {
-    title: "Launch Time",
+    title: "Fast Launch",
     icon: PlayIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Speed up your launch time and stay ahead of the competition with our efficient processes and support.",
   },
 ];
 

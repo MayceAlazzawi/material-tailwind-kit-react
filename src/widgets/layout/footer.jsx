@@ -3,7 +3,7 @@ import { Typography, IconButton } from "@material-tailwind/react";
 
 const year = new Date().getFullYear();
 
-export function Footer({ title, description, socials, menus, copyright }) {
+export function Footer({ title, description, socials, menus}) {
   return (
     <footer className="relative px-4 pt-8 pb-6">
       <div className="container mx-auto">
@@ -15,22 +15,6 @@ export function Footer({ title, description, socials, menus, copyright }) {
             <Typography className="font-normal text-blue-gray-500 lg:w-2/5">
               {description}
             </Typography>
-            <div className="mx-auto mt-6 mb-8 flex justify-center gap-2 md:mb-0 lg:justify-start">
-              {socials.map(({ color, name, path }) => (
-                <a
-                  key={name}
-                  href={path}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IconButton color="white" className="rounded-full shadow-none bg-transparent">
-                    <Typography color={color}>
-                      <i className={`fa-brands fa-${name}`} />
-                    </Typography>
-                  </IconButton>
-                </a>
-              ))}
-            </div>
           </div>
           <div className="mx-auto mt-12 grid w-max grid-cols-2 gap-24 lg:mt-0">
             {menus.map(({ name, items }) => (
@@ -48,7 +32,6 @@ export function Footer({ title, description, socials, menus, copyright }) {
                       <Typography
                         as="a"
                         href={item.path}
-                        target="_blank"
                         rel="noreferrer"
                         variant="small"
                         className="mb-2 block font-normal text-blue-gray-500 hover:text-blue-gray-700"
@@ -60,17 +43,26 @@ export function Footer({ title, description, socials, menus, copyright }) {
                 </ul>
               </div>
             ))}
-          </div>
-        </div>
-        <hr className="my-6 border-gray-300" />
-        <div className="flex flex-wrap items-center justify-center md:justify-between">
-          <div className="mx-auto w-full px-4 text-center">
-            <Typography
-              variant="small"
-              className="font-normal text-blue-gray-500"
-            >
-              {copyright}
-            </Typography>
+                <div>
+            <div className="mx-auto mt-6 mb-8 flex justify-center gap-2 md:mb-0 lg:justify-start">
+              <IconButton color="white" className="rounded-full shadow-none bg-transparent">
+              <svg className="w-4 h-4 text-gray-900 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
+                   <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"/>
+                 </svg>
+              </IconButton>
+              <Typography color="gray" className="flex justify-center items-center">
+                  +971543963378
+              </Typography>
+            </div>
+            <div className="mx-auto mt-6 mb-8 flex justify-center gap-2 md:mb-0 lg:justify-start">
+              <IconButton color="white" className="rounded-full shadow-none bg-transparent">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" id="mail"><g fill="none" fillRule="evenodd" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M3 1h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2z"></path><path d="m21 3-10 7L1 3"></path></g></svg>
+              </IconButton>
+              <Typography color="gray" className="flex justify-center items-center">
+                  +971543963378
+              </Typography>
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -79,20 +71,11 @@ export function Footer({ title, description, socials, menus, copyright }) {
 }
 
 Footer.defaultProps = {
-  title: "Material Tailwind",
+  title: "Creative Makers",
   description:
-    "Easy to use React components for Tailwind CSS and Material Design.",
+    "We're here to empower innovators to turn their visions into reality",
   socials: [
-    {
-      color: "gray",
-      name: "twitter",
-      path: "https://www.twitter.com/creativetim",
-    },
-    {
-      color: "gray",
-      name: "youtube",
-      path: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w",
-    },
+    
     {
       color: "gray",
       name: "instagram",
@@ -108,53 +91,18 @@ Footer.defaultProps = {
     {
       name: "useful links",
       items: [
-        { name: "About Us", path: "https://www.creative-tim.com/presentation" },
-        { name: "Blog", path: "https://www.creative-tim.com/blog" },
+        { name: "About Us", path: "#aboutus" },
         {
-          name: "Github",
-          path: "https://www.github.com/creativetimofficial/material-tailwind?ref=mtk",
+          name: "services",
+          path: "#services",
         },
         {
-          name: "Free Products",
-          path: "https://www.creative-tim.com/templates/free?ref=mtk",
-        },
-      ],
-    },
-    {
-      name: "other resources",
-      items: [
-        {
-          name: "MIT License",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/LICENSE.md?ref=mtk",
-        },
-        {
-          name: "Contribute",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CONTRIBUTING.md?ref=mtk",
-        },
-        {
-          name: "Change Log",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CHANGELOG.md?ref=mtk",
-        },
-        {
-          name: "Contact Us",
-          path: "https://creative-tim.com/contact-us?ref=mtk",
+          name: "contact us",
+          path: "#contactus",
         },
       ],
     },
   ],
-  copyright: (
-    <>
-      Copyright © {year} Material Tailwind by{" "}
-      <a
-        href="https://www.creative-tim.com?ref=mtk"
-        target="_blank"
-        className="text-blue-gray-500 transition-colors hover:text-blue-500"
-      >
-        Creative Tim
-      </a>
-      .
-    </>
-  ),
 };
 
 Footer.propTypes = {

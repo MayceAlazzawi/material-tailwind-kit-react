@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+
 import {
   Card,
   CardBody,
@@ -16,6 +18,27 @@ import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
 
 export function Home() {
+  const [MsgSent, setMsgSent] = useState("")
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
+        publicKey: 'YOUR_PUBLIC_KEY',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          setMsgSent("Message sent successfully!")
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          setMsgSent("Message sending faild!")
+        },
+      );
+  };
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -29,18 +52,16 @@ export function Home() {
                 color="white"
                 className="mb-6 font-black"
               >
-                Your story starts with us.
+                Creative Makers Bringing Ideas to Life.
               </Typography>
               <Typography variant="lead" color="white" className="opacity-80">
-                This is a simple example of a Landing Page you can build using
-                Material Tailwind. It features multiple components based on the
-                Tailwind CSS and Material Design by Google.
+                We're here to empower innovators to turn their visions into reality. 
               </Typography>
             </div>
           </div>
         </div>
       </div>
-      <section className="-mt-32 bg-white px-4 pb-20 pt-4">
+      <section className="-mt-32 bg-white px-4 pb-20 pt-4" id="aboutus">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuresData.map(({ color, title, icon, description }) => (
@@ -56,7 +77,7 @@ export function Home() {
             ))}
           </div>
           <div className="mt-32 flex flex-wrap items-center">
-            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+            <div className="mx-auto -mt-8 w-full px-4 md:w-6/12 flex flex-col justify-center items-center" id="aboutus">
               <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
                 <FingerPrintIcon className="h-8 w-8 text-white " />
               </div>
@@ -65,85 +86,22 @@ export function Home() {
                 className="mb-3 font-bold"
                 color="blue-gray"
               >
-                Working with us is a pleasure
+                About Us
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500">
-                Don't let your uses guess by attaching tooltips and popoves to
-                any element. Just make sure you enable them first via
-                JavaScript.
-                <br />
-                <br />
-                The kit comes with three pre-built pages to help you get started
-                faster. You can change the text and images and you're good to
-                go. Just make sure you enable them first via JavaScript.
-              </Typography>
-              <Button variant="filled">read more</Button>
-            </div>
-            <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
-              <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
-                <CardHeader floated={false} className="relative h-56">
-                  <img
-                    alt="Card Image"
-                    src="/img/teamwork.png"
-                    className="h-full w-full"
-                  />
-                </CardHeader>
-                <CardBody>
-                  <Typography variant="small" color="blue-gray" className="font-normal">Enterprise</Typography>
-                  <Typography
-                    variant="h5"
-                    color="blue-gray"
-                    className="mb-3 mt-2 font-bold"
-                  >
-                    Top Notch Services
-                  </Typography>
-                  <Typography className="font-normal text-blue-gray-500">
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens.
-                  </Typography>
-                </CardBody>
-              </Card>
+
+              At Creative Makers, we're dedicated to transforming ideas into reality. Our team of passionate creators collaborates closely with clients to deliver innovative solutions tailored to their needs. With a focus on excellence and customer satisfaction, we empower individuals and businesses to succeed in the digital world. Join us in bringing your vision to life.              </Typography>
+              <Button variant="filled">Join us now!</Button>
             </div>
           </div>
         </div>
       </section>
-      <section className="px-4 pt-20 pb-48">
+      <section className="relative bg-white py-24 px-4" id="services">
         <div className="container mx-auto">
-          <PageTitle section="Our Team" heading="Here are our heroes">
-            According to the National Oceanic and Atmospheric Administration,
-            Ted, Scambos, NSIDClead scentist, puts the potentially record
-            maximum.
+          <PageTitle section="Co-Working" heading="Let's Collaborate">
+            Partner with us to create something extraordinary.
           </PageTitle>
-          <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-            {teamData.map(({ img, name, position, socials }) => (
-              <TeamCard
-                key={name}
-                img={img}
-                name={name}
-                position={position}
-                socials={
-                  <div className="flex items-center gap-2">
-                    {socials.map(({ color, name }) => (
-                      <IconButton key={name} color={color} variant="text">
-                        <i className={`fa-brands text-xl fa-${name}`} />
-                      </IconButton>
-                    ))}
-                  </div>
-                }
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="relative bg-white py-24 px-4">
-        <div className="container mx-auto">
-          <PageTitle section="Co-Working" heading="Build something">
-            Put the potentially record low maximum sea ice extent tihs year down
-            to low ice. According to the National Oceanic and Atmospheric
-            Administration, Ted, Scambos.
-          </PageTitle>
-          <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3" >
             {contactData.map(({ title, icon, description }) => (
               <Card
                 key={title}
@@ -165,37 +123,23 @@ export function Home() {
               </Card>
             ))}
           </div>
-          <PageTitle section="Contact Us" heading="Want to work with us?">
-            Complete this form and we will get back to you in 24 hours.
+          <div id="contactus">
+          <PageTitle section="Contact Us" heading="Let's Connect" >
+            Drop us a message and let's start a conversation.
           </PageTitle>
-          <form className="mx-auto w-full mt-12 lg:w-5/12">
+          <form className="mx-auto w-full mt-12 lg:w-5/12" ref={form} onSubmit={sendEmail}>
             <div className="mb-8 flex gap-8">
-              <Input variant="outlined" size="lg" label="Full Name" />
-              <Input variant="outlined" size="lg" label="Email Address" />
+              <Input variant="outlined" size="lg" label="Full Name" name="user_name"/>
+              <Input variant="outlined" size="lg" label="Email Address" name="user_email" />
             </div>
-            <Textarea variant="outlined" size="lg" label="Message" rows={8} />
-            <Checkbox
-              label={
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="flex items-center font-normal"
-                >
-                  I agree the
-                  <a
-                    href="#"
-                    className="font-medium transition-colors hover:text-gray-900"
-                  >
-                    &nbsp;Terms and Conditions
-                  </a>
-                </Typography>
-              }
-              containerProps={{ className: "-ml-2.5" }}
-            />
-            <Button variant="gradient" size="lg" className="mt-8" fullWidth>
+            <Textarea variant="outlined" size="lg" label="Message" rows={8} name="message" />
+            <Button variant="gradient" size="lg" className="mt-8" fullWidth value="Send" >
               Send Message
             </Button>
+            {MsgSent && MsgSent}
           </form>
+          </div>
+         
         </div>
       </section>
       <div className="bg-white">
