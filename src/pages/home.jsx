@@ -23,7 +23,6 @@ export function Home() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log("k")
     emailjs
       .sendForm('service_2quhu2n', 'template_91pbhth', form.current, {
         publicKey: '8Yj4TQORNo50jHriN',
